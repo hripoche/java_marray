@@ -1,0 +1,113 @@
+<project name="marray" default="deploy" basedir=".">
+  <target name="init">
+      <tstamp/>
+  </target>
+
+  <property name="build" value="build" />
+  <property name="src" value="src" />
+  <property environment="myenv" />
+
+  <path id="classpath">
+    <fileset dir="${myenv.JWSDP_HOME}/common/lib">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+
+  <target name="prepare" depends="init"
+   description="Create build directories.">
+    <mkdir dir="${build}" />
+    <mkdir dir="${build}/WEB-INF" />
+    <mkdir dir="${build}/WEB-INF/classes" />
+    <mkdir dir="${build}/temp" />
+  </target>
+
+  <target name="build" depends="prepare" 
+     description="Compile app Java files and copy HTML and JSP pages" >
+    <javac srcdir="${src}" destdir="${build}/WEB-INF/classes">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+<!--
+    <javac srcdir="${src}/com/oreilly/servlet" destdir="${build}/WEB-INF/classes">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+    <javac srcdir="${src}/util" destdir="${build}/WEB-INF/classes">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+    <javac srcdir="${src}/marray" destdir="${build}/WEB-INF/classes">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+    <javac srcdir="${src}/application" destdir="${build}/WEB-INF/classes">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+    <javac srcdir="${src}/servlet/core" destdir="${build}/WEB-INF/classes">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+    <javac srcdir="${src}/servlet/action/sample" destdir="${build}/WEB-INF/classes">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+    <javac srcdir="${src}/servlet/action/login" destdir="${build}/WEB-INF/classes">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+    <javac srcdir="${src}/servlet/action/correlation" destdir="${build}/WEB-INF/classes">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+    <javac srcdir="${src}/servlet/action/convert" destdir="${build}/WEB-INF/classes">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+    <javac srcdir="${src}/servlet/action/stanfordToLists" destdir="${build}/WEB-INF/classes">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+    <javac srcdir="${src}/servlet/action/marrayToStanford" destdir="${build}/WEB-INF/classes">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+-->
+    <copy todir="${build}/WEB-INF/classes/servlet/core">
+      <fileset dir="${src}/servlet/core"    >
+        <include name="actions.txt" />
+      </fileset>
+    </copy>
+    <copy todir="${build}/WEB-INF">
+      <fileset dir="."    >
+        <include name="web.xml" />
+        <include name="*.tld" />
+      </fileset>
+    </copy>
+    <copy todir="${build}/jsp">
+      <fileset dir="./jsp">
+        <include name="*.html" />
+        <include name="*.jsp" />
+        <include name="*.gif" />
+      </fileset>
+    </copy>
+    <copy todir="${build}/js/menu">
+      <fileset dir="./js/menu">
+        <include name="*.js" />
+      </fileset>
+    </copy>
+    <copy todir="${build}/images/menu">
+      <fileset dir="./images/menu">
+        <include name="*.gif" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="deploy" depends="build"
+     description="Deploy app to webapps.">
+    <copy todir="${myenv.JWSDP_HOME}/webapps/marray">
+      <fileset dir="${build}" />
+    </copy>
+  </target>	 
+
+</project>

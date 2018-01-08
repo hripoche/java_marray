@@ -1,0 +1,15 @@
+# actions.txt
+
+sample servlet.action.sample.SampleAction
+
+login servlet.action.login.LoginAction
+correlation servlet.action.correlation.CorrelationAction
+convert_arp servlet.action.convertArp.ConvertArpAction
+convert_agilent servlet.action.convertAgilent.ConvertAgilentAction
+marray_to_stanford_step2 servlet.action.marrayToStanford.MarrayToStanfordStep2Action
+marray_to_stanford_step3 servlet.action.marrayToStanford.MarrayToStanfordStep3Action
+stanford_to_lists servlet.action.stanfordToLists.StanfordToListsAction
+kmeans servlet.action.kmeans.KMeansAction
+hierarchical servlet.action.hierarchical.HierarchicalAction
+upgma servlet.action.upgma.UpgmaAction
+

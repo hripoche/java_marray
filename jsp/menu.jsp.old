@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <title>Analyses sur microarray</title>
+</head>
+
+<body
+  bgcolor="#FFFFFF"
+  text="#000000"
+  link="#0000FF"
+  vlink="#000080"
+  alink="#FF0000"
+ >
+
+<jsp:include page="/jsp/check_connection.jsp" />
+
+<h1>Analyses sur microarrays</h1>
+
+<ul>
+    <li> <h2>A partir de fichiers microarrays</h2>
+
+    <ul>
+        <li> <a href="<%= response.encodeURL("/marray/jsp/correlation.jsp") %>"> Corr&eacute;lation entre deux microarrays Agilent</a>
+        <li> <a href="<%= response.encodeURL("/marray/jsp/convert_arp.jsp") %>"> Conversion d'un microarray Agilent vers le format ArrayPlot </a>
+        <li> <a href="<%= response.encodeURL("/marray/jsp/convert_agilent.jsp") %>"> Conversion d'un microarray Agilent vers le format Agilent </a>
+        <li> <a href="<%= response.encodeURL("/marray/jsp/marray_to_stanford_step1.jsp") %>"> Conversion de microarrays vers le format Stanford </a>
+    </ul>
+    
+    <br>
+
+    <li> <h2>A partir de fichiers au format Stanford</h2>
+
+    <ul>
+        <li> <a href="<%= response.encodeURL("/marray/jsp/stanford_to_lists.jsp") %>"> Liste de g&egrave;nes tri&eacute;s</a>
+        <li> <a href="<%= response.encodeURL("/marray/jsp/kmeans.jsp") %>"> Classification kmeans </a>
+        <li> <a href="<%= response.encodeURL("/marray/jsp/hierarchical.jsp") %>"> Classification hi&eacute;rarchique "single linkage"</a>
+        <li> <a href="<%= response.encodeURL("/marray/jsp/upgma.jsp") %>"> Classification hi&eacute;rarchique UPGMA </a>
+    </ul>
+</ul>
+
+<jsp:include page="/jsp/bottom.jsp" />
+
+</body>
+</html>

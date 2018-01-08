@@ -1,0 +1,53 @@
+// MemComputation.java
+
+package classifier.hierarchical;
+
+import java.util.Vector;
+
+/**
+ * @author H. Ripoche
+ * 11/03/2002
+ * Cette classe permet de simuler une matrice symetrique: get(ci,cj) == get(cj,ci)
+ */
+public class MemComputation {
+
+  private static Vector mem = new Vector();
+
+  private Cluster cluster1;
+  private Cluster cluster2;
+  private double value;
+
+  public MemComputation (Cluster cluster1, Cluster cluster2, double value) {
+    this.cluster1 = cluster1;
+    this.cluster2 = cluster2;
+    this.value = value;	
+  }
+
+  static double get (Cluster cluster1, Cluster cluster2) {
+    MemComputation mc=null;
+    int size = mem.size();
+    for (int i=0; i<size; i++) {
+      mc = (MemComputation)mem.elementAt(i);
+      if ((mc.cluster1.equals(cluster1) && mc.cluster2.equals(cluster2)) ||
+          (mc.cluster1.equals(cluster2) && mc.cluster2.equals(cluster1)))
+         return mc.value;
+    }
+    return Double.NaN;
+  }
+
+  static void add (Cluster cluster1, Cluster cluster2, double value) {
+    mem.add(new MemComputation(cluster1,cluster2,value));
+  }
+
+  static void init () {
+    mem = new Vector();
+  }
+
+  public String toString () {
+    return "{"+cluster1+", "+cluster2+", "+value+"}";
+  }
+
+  public static String asString () {
+    return mem.toString();
+  }
+}

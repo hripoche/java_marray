@@ -1,0 +1,42 @@
+***************
+*** 199,210 ****
+        // Thanks to Daniel Lemire and Henri Tourigny for this fix.
+        return null;
+      }
+!     headers.addElement(line);
+  
+      // Read the following header lines we hit an empty line
+!     while ((line = readLine()) != null && (line.length() > 0)) {
+!       headers.addElement(line);
+!     }
+  
+      // If we got a null above, it's the end
+      if (line == null) {
+--- 199,225 ----
+        // Thanks to Daniel Lemire and Henri Tourigny for this fix.
+        return null;
+      }
+!     // headers.addElement(line);
+  
+      // Read the following header lines we hit an empty line
+!     while (line != null && line.length() > 0)
+!       {
+! 	String nextLine = null;
+! 	boolean getNextLine = true;
+! 	while (getNextLine)
+! 	{
+! 	  nextLine = readLine();
+! 	  if (nextLine != null
+! 	      && (nextLine.startsWith(" ")
+! 		  || nextLine.startsWith("\t")))
+! 	    line = line + nextLine;
+! 	  else
+! 	    getNextLine = false;
+! 	}
+! 	// Add the line to the header list
+! 	headers.addElement(line);
+! 	line = nextLine;
+!       }
+  
+      // If we got a null above, it's the end
+      if (line == null) {

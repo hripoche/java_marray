@@ -1,0 +1,42 @@
+<project name="marray-example" default="build" basedir=".">
+  <target name="init">
+      <tstamp/>
+  </target>
+
+  <property name="build" value="classes" />
+  <property environment="myenv" />
+
+  <path id="classpath">
+    <fileset dir="${myenv.JWSDP_HOME}/common/lib">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+
+  <target name="prepare" depends="init"
+   description="Create build directories.">
+    <mkdir dir="${build}" />
+  </target>
+
+  <target name="build" depends="prepare" 
+     description="Compile app Java files and copy HTML and JSP pages" >
+    <javac srcdir="./src" destdir="${build}">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+<!--
+    <javac srcdir="./src/util" destdir="${build}">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+    <javac srcdir="./src/marray" destdir="${build}">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+    <javac srcdir="./src/application" destdir="${build}">
+    	<include name="**/*.java" />
+     	<classpath refid="classpath"/>
+    </javac>
+-->
+  </target>
+
+</project>

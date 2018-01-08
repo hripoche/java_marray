@@ -1,0 +1,1 @@
+%interpreter% %application% agilent_to_arp c:\data\igr\marray\test\US14702370_16000437000841_S01_A02.txt c:\data\usr\hr\java\agilent\data\out.arp

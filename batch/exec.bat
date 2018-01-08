@@ -1,0 +1,1 @@
+%interpreter% %application% agilent_to_arp c:\data\marray\agilent\feature_extraction\US14702370_16000478001213_S01_A01.txt c:\data\usr\hr\java\agilent_to_arp\out.arp

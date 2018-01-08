@@ -1,0 +1,1 @@
+%interpreter% %application% pool c:\data\usr\hr\java\marray\data\pool.txt c:\data\igr\marray\agilent\feature_extraction\US14702370_16000478001318_S01_A01.txt

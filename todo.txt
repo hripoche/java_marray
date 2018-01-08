@@ -1,0 +1,41 @@
+- file upload: ne respecte pas l'ordre des fichiers,
+  en particulier pour marrayToStanford
+- fichier Arrayplot incorrect (saut de ligne)
+  si sauvegarde à partir de Netscape PC
+- format Agilent sans codage en dur des numéros de colonnes
+- croisement Gene Ontology
+- filtre sur l'écart-type du logRatio d'un gènes dans n expériences
+- classification kmeans: choix distance
+- classification hiérarchique: choix distance ; complete linkage (maximum dist)
+- classification SOM
+- graphique logRatio2 = f(logRatio1)
+- graphique logRatio = f(intensité)
+- prise en compte locuslink/NCBI
+  col. refSeq NM, unigene HS
+- profiling/optimisation
+- corrélation avec pondération par le terme d'erreur Rosetta
+- framework servlet: suppression des variables statiques
+- suppression classes inutiles Jason Hunter
+- calcul de corrélation pour Affymetrix/Genepix
+- sortie Arrayplot pour Genepix
+- sortie TIGR ArrayViewer
+- saisie param sur JSP à part
+- agilent > correlation: filtrage sur intensité
+- sortie au format cluster/Eisen
+- utilisation ssl
+- traduction en anglais
+- passage du nom du fichier Stanford en session
+
+fait:
+- java.lang.OutOfMemory error
+- javascript tree menu
+- liste des gènes exprimés (distance classe - gène)
+- agilent: log10 -> log2
+- adaptation au nouveau format Agilent
+- filtrage sur logRatio != 0 (|logRatio| > seuil)
+- connexion/mot de passe
+- prise en compte flip-flop dans la conversion au format Genesis
+- agilent: gènes communs: utiliser featureNum en plus de systematicName
+  parce qu'il peut y avoir plusieurs gènes de meme nom sur une puce.
+- agilent: suppression des spots saturés
+- classe ParameterFilter

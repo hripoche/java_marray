@@ -1,0 +1,1 @@
+%interpreter% %application% correlation c:\data\igr\marray\agilent\feature_extraction\US14702370_16000478001319_S01_A02.txt c:\data\igr\marray\agilent\feature_extraction\US14702370_16000478001217_S01_A02.txt
